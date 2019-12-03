@@ -6,8 +6,6 @@ import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-  // newServerName = '';
-  // newServerContent = '';
   @ViewChild('serverContentInput', { static: true }) serverContentInput: ElementRef;
 
   @Output() serverCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
@@ -18,7 +16,6 @@ export class CockpitComponent implements OnInit {
   }
 
   onAddServer(nameInput: HTMLInputElement) {
-    console.log(this.serverContentInput);
     this.serverCreated.emit({ serverName: nameInput.value, serverContent: this.serverContentInput.nativeElement.value });
   }
 
